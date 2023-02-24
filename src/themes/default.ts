@@ -12,11 +12,17 @@ export const theme: Theme = {
       foreground: "#FBFBFB",
       text: "#000",
     },
+
+    dark: {
+      background: "#18122B",
+      foreground: "#393053",
+      text: "#FFF",
+    },
     accessory: {
       warning: "",
       error: "#FF3D00",
       success: "",
-      info: "",
+      info: "#B2B2B2",
     },
   },
 };

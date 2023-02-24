@@ -11,7 +11,7 @@ export interface Theme {
       text: string;
     };
 
-    dark?: {
+    dark: {
       background: string;
       foreground: string;
       text: string;

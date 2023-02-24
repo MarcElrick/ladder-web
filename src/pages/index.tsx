@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
-import { LadderItem } from "@/components/LadderItem/LadderItem";
+import { LadderItem } from "@/components/Ladder/LadderItem/LadderItem";
+import { Ladder } from "@/components/Ladder/Ladder";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +16,35 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <LadderItem email="marc.elrick@fanduel.com" position={1} />
+      <Ladder
+        players={[
+          {
+            email: "marc@poolladder.com",
+            position: 1,
+            canChallenge: false,
+          },
+          {
+            email: "eb@poolladder.com ",
+            position: 2,
+            canChallenge: true,
+          },
+          {
+            email: "sj@poolladder..com",
+            position: 3,
+            canChallenge: true,
+          },
+          {
+            email: "mw@poolladder.com ",
+            position: 4,
+            canChallenge: false,
+          },
+          {
+            email: "pc@poolladder.com",
+            position: 5,
+            canChallenge: true,
+          },
+        ]}
+      />
     </>
   );
 }

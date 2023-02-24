@@ -1,13 +1,36 @@
 import type { AppProps } from "next/app";
-import { createRenderer } from "fela";
-import { RendererProvider } from "react-fela";
+import { useTheme } from "@/hooks/useTheme";
+import { injectGlobal } from "@emotion/css";
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const renderer = createRenderer();
+  const { setLightVariant, setDarkVariant, variant, theme } = useTheme(
+    (state) => ({
+      variant: state.variant,
+      setLightVariant: state.setLightVariant,
+      setDarkVariant: state.setDarkVariant,
+      theme: state.theme,
+    })
+  );
+
+  useEffect(() => {
+    document.body.style.backgroundColor = theme.colors[variant].background;
+  }, [variant]);
 
   return (
-    <RendererProvider renderer={renderer}>
+    <>
       <Component {...pageProps} />
-    </RendererProvider>
+      <button
+        onClick={() => {
+          if (variant === "light") {
+            setDarkVariant();
+          } else if (variant === "dark") {
+            setLightVariant();
+          }
+        }}
+      >
+        {variant}
+      </button>
+    </>
   );
 }
