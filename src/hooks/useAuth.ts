@@ -4,7 +4,7 @@ import { signupUser } from '@/pages/api/auth/signup';
 import { Session, User } from '@supabase/gotrue-js';
 import { logoutUser } from '@/pages/api/auth/logout';
 
-export const useAuth = create<AuthState>((set) => ({
+export const useAuth = create<AuthState>()((set) => ({
   user: null,
   session: null,
   isAuthenticated: false,
