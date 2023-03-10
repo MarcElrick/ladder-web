@@ -1,15 +1,13 @@
-import { IStyle } from "fela";
-import { Theme, ThemeVariant } from "@/themes/types";
+import { Theme, ThemeVariant } from '@/themes/types';
 
-export interface LoginFormProps {}
-
-export interface LoginFormStyles {
+export interface JoinFormStyles {
   button: (theme: Theme, themeVariant: ThemeVariant) => string;
   container: (theme: Theme, themeVariant: ThemeVariant) => string;
   input: (theme: Theme, themeVariant: ThemeVariant) => string;
 }
 
 export interface validationErrors {
-  email: "" | "Required";
-  password: "" | "Required";
+  email: '' | 'Required';
+  password: '' | 'Required';
+  confirmPassword: '' | 'Required';
 }

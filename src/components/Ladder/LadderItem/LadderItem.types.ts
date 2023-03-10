@@ -1,5 +1,4 @@
-import { Theme, ThemeVariant } from "@/themes/types";
-import { IStyle } from "fela";
+import { Theme, ThemeVariant } from '@/themes/types';
 
 export interface LadderItemProps {
   email: string;

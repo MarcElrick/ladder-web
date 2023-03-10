@@ -1,7 +1,8 @@
-import type { AppProps } from "next/app";
-import { useTheme } from "@/hooks/useTheme";
-import { injectGlobal } from "@emotion/css";
-import { useEffect } from "react";
+import type { AppProps } from 'next/app';
+import { useTheme } from '@/hooks/useTheme';
+import { useEffect } from 'react';
+import { Header } from '@/components/Header/Header';
+import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   const { setLightVariant, setDarkVariant, variant, theme } = useTheme(
@@ -19,12 +20,13 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Header />
       <Component {...pageProps} />
       <button
         onClick={() => {
-          if (variant === "light") {
+          if (variant === 'light') {
             setDarkVariant();
-          } else if (variant === "dark") {
+          } else if (variant === 'dark') {
             setLightVariant();
           }
         }}

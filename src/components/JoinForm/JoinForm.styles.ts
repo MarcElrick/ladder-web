@@ -1,8 +1,8 @@
-import { MOBILE_WIDTH } from "@/constants";
-import { LoginFormStyles } from "@/components/LoginForm/LoginForm.types";
-import { css } from "@emotion/css";
+import { MOBILE_WIDTH } from '@/constants';
+import { JoinFormStyles } from './JoinForm.types';
+import { css } from '@emotion/css';
 
-export const styles: LoginFormStyles = {
+export const styles: JoinFormStyles = {
   button: (theme) => css`
     background-color: ${theme.colors.accent.primary};
     color: white;

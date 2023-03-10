@@ -1,11 +1,9 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import {
-  LoginFormProps,
-  validationErrors,
-} from "@/components/LoginForm/LoginForm.types";
-import { styles } from "./LoginForm.styles";
-import { useTheme } from "@/hooks/useTheme";
-import { useAuth } from "@/hooks/useAuth";
+import { Formik, Form } from 'formik';
+import { Field } from '@/components/Field';
+import { LoginFormProps, validationErrors } from './LoginForm.types';
+import { styles } from './LoginForm.styles';
+import { useTheme } from '@/hooks/useTheme';
+import { useAuth } from '@/hooks/useAuth';
 
 export const LoginForm = ({}: LoginFormProps) => {
   const { variant, theme } = useTheme();
@@ -13,16 +11,16 @@ export const LoginForm = ({}: LoginFormProps) => {
 
   return (
     <Formik
-      initialValues={{ email: "", password: "" }}
+      initialValues={{ email: '', password: '' }}
       validate={(values) => {
-        const errors: validationErrors = { email: "", password: "" };
+        const errors: validationErrors = { email: '', password: '' };
 
         if (!values.email) {
-          errors.email = "Required";
+          errors.email = 'Required';
         }
 
         if (!values.password) {
-          errors.password = "Required";
+          errors.password = 'Required';
         }
 
         return {};
@@ -33,19 +31,9 @@ export const LoginForm = ({}: LoginFormProps) => {
     >
       {({ isSubmitting }) => (
         <Form className={styles.container(theme, variant)}>
-          <Field
-            type="email"
-            name="email"
-            className={styles.input(theme, variant)}
-          />
-          <ErrorMessage name="email" component="div" />
+          <Field name="email" label="Email" type="email" />
+          <Field name="password" label="Password" type="password" />
 
-          <Field
-            type="password"
-            name="password"
-            className={styles.input(theme, variant)}
-          />
-          <ErrorMessage name="password" component="div" />
           <button
             className={styles.button(theme, variant)}
             type="submit"

@@ -1,10 +1,8 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import { LadderItem } from "@/components/Ladder/LadderItem/LadderItem";
-import { Ladder } from "@/components/Ladder/Ladder";
+import Head from 'next/head';
+import { Inter } from '@next/font/google';
+import { Ladder } from '@/components/Ladder';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (
@@ -19,27 +17,27 @@ export default function Home() {
       <Ladder
         players={[
           {
-            email: "marc@poolladder.com",
+            email: 'marc@poolladder.com',
             position: 1,
             canChallenge: false,
           },
           {
-            email: "eb@poolladder.com ",
+            email: 'eb@poolladder.com ',
             position: 2,
             canChallenge: true,
           },
           {
-            email: "sj@poolladder..com",
+            email: 'sj@poolladder..com',
             position: 3,
             canChallenge: true,
           },
           {
-            email: "mw@poolladder.com ",
+            email: 'mw@poolladder.com ',
             position: 4,
             canChallenge: false,
           },
           {
-            email: "pc@poolladder.com",
+            email: 'pc@poolladder.com',
             position: 5,
             canChallenge: true,
           },
