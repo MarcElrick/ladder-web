@@ -4,10 +4,16 @@ import { LoginFormProps, validationErrors } from './LoginForm.types';
 import { styles } from './LoginForm.styles';
 import { useTheme } from '@/hooks/useTheme';
 import { useAuth } from '@/hooks/useAuth';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export const LoginForm = ({}: LoginFormProps) => {
   const { variant, theme } = useTheme();
-  const { login } = useAuth();
+  const { login, isAuthenticated } = useAuth();
+  const { push } = useRouter();
+  useEffect(() => {
+    isAuthenticated && push('/');
+  }, [isAuthenticated]);
 
   return (
     <Formik
@@ -26,7 +32,8 @@ export const LoginForm = ({}: LoginFormProps) => {
         return {};
       }}
       onSubmit={(values, { setSubmitting }) => {
-        login(values.email, values.password).then(() => setSubmitting(false));
+        login(values.email, values.password);
+        setSubmitting(false);
       }}
     >
       {({ isSubmitting }) => (
